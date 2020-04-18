@@ -8,7 +8,10 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceRoot}/bin/www"
+
+      // https://github.com/Microsoft/vscode/issues/28257#issuecomment-498963860
+      // fixed for when the file doesn't have a .js extension, e.g. .ts.
+      "program": "${workspaceRoot}/bin/www.js"
     }
   ]
 }
