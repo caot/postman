@@ -1,18 +1,30 @@
 {
   "development": {
-    "username": "postgres",
+    "host": "localhost",
+    "username": "postman_dev",
     "password": null,
     "database": "postman_dev",
-    "host": "localhost",
-    "port": 5432,
-    "dialect": "postgres"
+    "port": 3306,
+    "dialect": "mysql",
+    "pool": {
+      "max": 2,
+      "min": 0,
+      "acquire": 3000,
+      "idle": 10000
+    }
   },
   "test": {
-    "username": "postgres",
-    "password": null,
-    "database": "postman_test",
     "host": "localhost",
-    "port": 5432,
-    "dialect": "postgres"
+    "username": "postman_dev",
+    "password": null,
+    "database": "postman_dev",
+    "port": 3306,
+    "dialect": "mysql",
+    "pool": {
+      "max": 2,
+      "min": 0,
+      "acquire": 3000,
+      "idle": 10000
+    }
   }
 }
