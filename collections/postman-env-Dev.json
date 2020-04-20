@@ -1,0 +1,19 @@
+{
+	"id": "1d5bde66-c896-4ea0-bdf5-b9aa5d339519",
+	"name": "github.com/caot/postman Dev",
+	"values": [
+		{
+			"key": "host",
+			"value": "localhost:3000",
+			"enabled": true
+		},
+		{
+			"key": "auth",
+			"value": "Basic YWRtaW46YWRtaW4=",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2020-04-20T01:45:03.731Z",
+	"_postman_exported_using": "Postman/7.22.1"
+}

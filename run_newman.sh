@@ -1,0 +1,1 @@
+newman run ./collections/postman_collection.json -e ./collections/postman-env-Dev.json -- bail

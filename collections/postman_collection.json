@@ -1,0 +1,240 @@
+{
+	"info": {
+		"_postman_id": "c6e321cc-5e6e-4e06-ab2b-9c336dec450a",
+		"name": "github.com/caot/postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/landing",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7cfd8787-0cbc-4d9e-bc34-32f58f2a6220",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/landing",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"landing"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/books with tests ***",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "555999d3-1921-435f-ae46-416fc25d4873",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"const titleIsDefined = (book) => {",
+							"    return book.title !== undefined;",
+							"}",
+							"",
+							"pm.test(\"All books should have a title\", function () {",
+							"    const books = pm.response.json();",
+							"    console.log(books);",
+							"    ",
+							"    pm.expect(books.every(",
+							"        (book) => {",
+							"            return book.title !== undefined;",
+							"        }",
+							"    )).to.be.true;",
+							"});",
+							"",
+							"// the follows is the same as the above",
+							"pm.test(\"All books should have a title\", function () {",
+							"    const books = pm.response.json();",
+							"    pm.expect(books.every(titleIsDefined)).to.be.true;",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "G-Token",
+						"value": "ROM831ESV",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/books",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/books with tests *** POST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "555999d3-1921-435f-ae46-416fc25d4873",
+						"exec": [
+							"const  moment = require('moment');",
+							"",
+							"pm.test(\"Create data is equal to today\", function () {",
+							"    const data = pm.response.json();",
+							"    ",
+							"    pm.expect(moment(data.createdAt).format('MM/DD/YYYY')).to.eql(moment().format('MM/DD/YYYY'));",
+							"});",
+							"",
+							"pm.test(\"Create data is equal to today\", function () {",
+							"    const data = _.result(pm, 'response.json');",
+							"    ",
+							"    pm.expect(moment(data.createdAt).format('MM/DD/YYYY')).to.eql(moment().format('MM/DD/YYYY'));",
+							"});",
+							"",
+							"// js library",
+							"// 39 of the best JavaScript libraries and frameworks to try in 2020 https://getflywheel.com/layout/best-javascript-libraries-frameworks-2020/",
+							"",
+							"// Like around 50 this list will take you around few years to master then by that time new libraries will come out",
+							"// and you will learn another new 50 and you just go in circle till you die",
+							"",
+							"// Quasar Framework (uasar.dev)",
+							"// Build high-performance VueJS user interfaces in record time ",
+							"",
+							"// const  atob = require('atob');  //  Identifier 'atob' has already been declared",
+							"// const  btoa = require('btoa');  //  Identifier 'btoa' has already been declared",
+							"// const cheerio = require('cheerio'); // Identifier 'cheerio' has already been declared",
+							"// const csv_parse = require('csv-parse');  // Cannot find module 'csv-parse",
+							"// const tv4 = require('tv4');  // Identifier 'tv4' has already been declared",
+							"const chai = require('chai');",
+							"const crypto_js = require('crypto-js');",
+							"const postman_collection = require('postman-collection');",
+							"const uuid = require('uuid');",
+							"const xml2js = require('xml2js');",
+							"const assert = require('assert');",
+							"const buffer = require('buffer');",
+							"const util = require('util');",
+							"const url = require('url');",
+							"const punycode = require('punycode');",
+							"const querystring = require('querystring');",
+							"const string_decoder = require('string_decoder');",
+							"const stream = require('stream');",
+							"const timers = require('timers');",
+							"const events = require('events');",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "G-Token",
+						"value": "ROM831ESV",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"The Dramma of Doctrine\",\n\t\"author\": \"Kevin Vanhoozer\",\n\t\"publicatonDate\": \"2005-0802\",\n\t\"isbn\": \"064223273\"\n}"
+				},
+				"url": {
+					"raw": "{{host}}/books",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/households",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f988c477-d6b4-4241-98ae-092bf3d0ae68",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "G-Token",
+						"value": "ROM831ESV",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/books/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"books",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
